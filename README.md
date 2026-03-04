@@ -13,7 +13,7 @@ Votre mission :
 👉 Concevoir et implémenter une solution d’automatisation des tests.  
 👉 Déployer votre solution sur PythonAnywhere.  
 👉 Mesurer et exposer des indicateurs de qualité de service.    
-  
+   
 -------------------------------------------------------------------------------------------------------
 🧩 Séquence 1 : GitHUB
 -------------------------------------------------------------------------------------------------------
