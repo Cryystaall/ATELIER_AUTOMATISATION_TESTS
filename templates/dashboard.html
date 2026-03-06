@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>Dog API Monitor</title>
+<title>Monitoring API Dog</title>
 
 <style>
 
@@ -33,16 +33,24 @@ font-size:18px;
 margin-right:20px;
 }
 
+button{
+padding:10px 16px;
+font-size:16px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<h1>🐶 Dog API Monitoring Dashboard</h1>
+<h1>🐶 Tableau de supervision de l'API Dog</h1>
 
 <a href="/run">
-<button>Run tests</button>
+<button>Lancer les tests</button>
 </a>
 
 <br><br>
@@ -51,20 +59,20 @@ margin-right:20px;
 
 <div class="card">
 
-<h3>{{ run.timestamp }}</h3>
+<h3>Exécution du : {{ run.timestamp }}</h3>
 
 <div>
 
 <span class="metric">
-Passed: {{ run.data.summary.passed }}
+Tests réussis : {{ run.data.summary.passed }}
 </span>
 
 <span class="metric">
-Failed: {{ run.data.summary.failed }}
+Tests échoués : {{ run.data.summary.failed }}
 </span>
 
 <span class="metric">
-Error rate: {{ run.data.summary.error_rate }}
+Taux d'erreur : {{ run.data.summary.error_rate }}
 </span>
 
 </div>
@@ -72,11 +80,11 @@ Error rate: {{ run.data.summary.error_rate }}
 <div>
 
 <span class="metric">
-Avg latency: {{ run.data.summary.latency_ms_avg }} ms
+Latence moyenne : {{ run.data.summary.latency_ms_avg }} ms
 </span>
 
 <span class="metric">
-P95 latency: {{ run.data.summary.latency_ms_p95 }} ms
+Latence P95 : {{ run.data.summary.latency_ms_p95 }} ms
 </span>
 
 </div>
@@ -90,9 +98,9 @@ P95 latency: {{ run.data.summary.latency_ms_p95 }} ms
 {{ test.name }}
 
 {% if test.status == "PASS" %}
-<span class="pass">PASS</span>
+<span class="pass">SUCCÈS</span>
 {% else %}
-<span class="fail">FAIL</span>
+<span class="fail">ÉCHEC</span>
 {% endif %}
 
 </li>
