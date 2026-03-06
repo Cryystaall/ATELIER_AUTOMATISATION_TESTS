@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Dog API Monitor</title>
+</head>
+
+<body>
+
+<h1>Dog API Testing Dashboard</h1>
+
+{% for run in runs %}
+
+<hr>
+
+<h3>{{ run.timestamp }}</h3>
+
+<p>
+Passed: {{ run.data.summary.passed }}
+|
+Failed: {{ run.data.summary.failed }}
+|
+Error rate: {{ run.data.summary.error_rate }}
+</p>
+
+<p>
+Latency avg: {{ run.data.summary.latency_ms_avg }} ms
+|
+p95: {{ run.data.summary.latency_ms_p95 }} ms
+</p>
+
+<ul>
+
+{% for test in run.data.tests %}
+
+<li>
+{{ test.name }} :
+<b>{{ test.status }}</b>
+</li>
+
+{% endfor %}
+
+</ul>
+
+{% endfor %}
+
+</body>
+</html>

@@ -1,13 +1,21 @@
 # API Choice
 
-- Étudiant :
-- API choisie :
-- URL base :
-- Documentation officielle / README :
-- Auth : None / API Key / OAuth
+- Étudiant : GAUNET Aline
+- API choisie : Dogs (Dog CEO)
+- URL base : https://dog.ceo/api
+- Documentation officielle / README : https://dog.ceo/dog-api/documentation/
+- Auth : None
 - Endpoints testés :
-  - GET ...
-  - GET ...
+  - GET /breeds/list/all
+  - GET /breeds/image/random
+  - GET /breed/hound/images/random
+  - GET /breed/notabreed/images/random (cas erreur attendu)
 - Hypothèses de contrat (champs attendus, types, codes) :
+  - Réponses JSON avec champs `status` (string) et `message` (type variable selon endpoint)
+  - `/breeds/list/all` retourne HTTP 200 + `status=success` + `message` objet (dict)
+  - `/breeds/image/random` retourne HTTP 200 + `message` URL image (string)
+  - endpoint/paramètre invalide retourne erreur (404 JSON attendu)
 - Limites / rate limiting connu :
+  - Non documenté clairement dans la doc publique ; tests limités à faible fréquence (1 run / 5 min, <= 20 requêtes / run)
 - Risques (instabilité, downtime, CORS, etc.) :
+  - API publique communautaire, possible indisponibilité ponctuelle ; URLs d’images externes parfois lentes
