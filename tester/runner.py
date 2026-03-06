@@ -2,7 +2,6 @@ import time
 import numpy as np
 from tester.tests import *
 
-
 TESTS = [
     ("list breeds", test_list_all_breeds),
     ("random image", test_random_image),

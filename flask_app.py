@@ -6,6 +6,10 @@ app = Flask(__name__)
 
 init_db()
 
+@app.route("/")
+def home():
+    return "Dog API tester is running"
+
 
 @app.route("/run")
 def run():
@@ -29,3 +33,7 @@ def dashboard():
 def health():
 
     return {"status": "ok"}
+
+@app.route("/runs.json")
+def runs_json():
+    return jsonify(list_runs())

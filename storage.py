@@ -8,9 +8,8 @@ DB = "runs.db"
 def init_db():
 
     conn = sqlite3.connect(DB)
-    c = conn.cursor()
 
-    c.execute("""
+    conn.execute("""
     CREATE TABLE IF NOT EXISTS runs (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         timestamp TEXT,
@@ -25,9 +24,8 @@ def init_db():
 def save_run(data):
 
     conn = sqlite3.connect(DB)
-    c = conn.cursor()
 
-    c.execute(
+    conn.execute(
         "INSERT INTO runs (timestamp,data) VALUES (?,?)",
         (datetime.now().isoformat(), json.dumps(data))
     )
@@ -39,9 +37,8 @@ def save_run(data):
 def list_runs():
 
     conn = sqlite3.connect(DB)
-    c = conn.cursor()
 
-    rows = c.execute(
+    rows = conn.execute(
         "SELECT timestamp,data FROM runs ORDER BY id DESC LIMIT 20"
     ).fetchall()
 
